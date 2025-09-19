@@ -1,9 +1,10 @@
-@"
 version: 1
 frontend:
   phases:
     preBuild:
       commands:
+        - export NVM_DIR="$HOME/.nvm"
+        - '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"'
         - nvm install 20
         - nvm use 20
         - node -v
@@ -21,4 +22,3 @@ frontend:
       - node_modules/**/*
       - ~/.npm/**/*
       - ~/.cache/**/*
-"@ | Out-File -Encoding UTF8 -NoNewline -FilePath amplify.yml
