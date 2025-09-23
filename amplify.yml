@@ -1,11 +1,9 @@
 version: 1
 frontend:
   phases:
-    preBuild:
-      commands:
-        - npm ci
     build:
       commands:
+        - npm ci
         - npm run build
   artifacts:
     baseDirectory: dist
@@ -14,3 +12,6 @@ frontend:
   cache:
     paths:
       - node_modules/**/*
+  # This command FORCES Amplify to use the correct static web host mode
+  environment:
+    _AMPLIFY_FRAMEWORK: 'WEB'
